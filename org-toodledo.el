@@ -413,7 +413,7 @@ Skip tasks with IDs in PROCESSED."
                (org-entry-put (point) "Toodledo-Deleted" (timestamp)))
              (org-toodledo-task-id task)))
          (org-toodledo-get-deleted
-          (list (cons "after" timestamp))))))
+          (list (cons "after" (number-to-string timestamp)))))))
   
 (defun org-toodledo-process-modified-tasks (modified)
   "Handle all the tasks that have been modified since MODIFIED."
