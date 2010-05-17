@@ -87,8 +87,8 @@
         (tasks (org-toodledo-get-tasks '(("notcomp" . "1")))))
     (insert "* Toodledo\n"
             ":PROPERTIES:\n"
-            ":Last-modified: " (cdr (assoc "lastaddedit" account-info)) "\n"
-            ":Last-deleted: " (cdr (assoc "lastdelete" account-info)) "\n"
+            ":Last-modified: " (or (cdr (assoc "lastaddedit" account-info)) "0") "\n"
+            ":Last-deleted: " (or (cdr (assoc "lastdelete" account-info)) "0") "\n"
             ":Last-sync: " (cdr (assoc "unixtime" server-info)) "\n"
             ":END:\n")
     (insert (mapconcat 'org-toodledo-task-to-string tasks "\n"))))
