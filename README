@@ -11,32 +11,4 @@ Call org-toodledo-delete-current-task to delete the current task
 
 Doesn't do lots of error trapping. Might be a good idea to version-control your Org file.
 
-TOODLEDO ATTRIBUTES and how they are bi-directionally handled
-Context: Handled by tags (ex:   :@work:  :@errands:)
-  - will create new contexts if necessary
-Task status: Mapped to TODO state.
-  See org-toodledo-status-to-string and org-toodledo-parse-current-task for the mapping
-  You will probably want something like this in your ~/.emacs:
-(setq org-todo-keywords
-     '((sequence
-        "TODO(t)"  ; next action
-        "PLAN(-)"
-        "STARTED(s)"
-        "WAITING(w@/!)"
-        "POSTPONED(p)" "SOMEDAY(s@/!)" "|" "DONE(x!)" "CANCELLED(c@)")
-	(type "DELEGATED(d@!)" "DONE(x)")))
-Length: Mapped to effort
-Priority: Mapped to [#A], [#B], or [#C]. (TODO: Change this to five levels of priority to match Toodledo)
-Start date: Mapped to "SCHEDULED"
-Due date: Mapped to "DEADLINE"
-Tags: Mapped to tags
-Note: Mapped to todo text. May get confused by asterisks, so don't use any starting asterisks in your body text.
-  (or anything that looks like an Org headline).
-Completed: Mapped to DONE todo state.
-
-TODO:
-- [ ] Double-check new/changed/deleted task updating, still seems buggy
-- [ ] Test, test, test - maybe make test harness?
-- [ ] Move status<->string mapping to a variable - lookups are better than logic
-- [ ] Make sure sync timestamps aren't getting updated more often than needed
-- [ ] Suggest some kind of hook to make it easier to mark a task as locally modified
+See the header of org-toodledo.el for more.
