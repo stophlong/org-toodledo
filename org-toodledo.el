@@ -94,7 +94,9 @@
 ;; -- Defined what does org-toodledo-touch does in the documentation (stophlong)
 
 (require 'org)
-(load "w3mexcerpt") ;; if you have w3m installed you can alternatively use (require 'w3m)
+(unless (require 'w3m nil t)
+  (require 'w3mexcerpt))
+
 (require 'xml)
 (defcustom org-toodledo-userid ""
   "UserID from Toodledo: http://www.toodledo.com/info/api_doc.php"

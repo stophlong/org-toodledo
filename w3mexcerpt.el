@@ -101,3 +101,5 @@ The valid values include `w3m', `w3mmee', and `w3m-m17n'.")
 					    w3m-coding-system
 					    'iso-2022-7bit))
 		  nil))))
+
+(provide 'w3mexcerpt)
