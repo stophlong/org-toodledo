@@ -431,7 +431,7 @@ Skip tasks with IDs in PROCESSED."
                 (save-excursion (org-toodledo-sync-task))))))))
 
 (defun org-toodledo-touch ()
-  "Update the current task."
+  "Update the current task's timestamp so that it's included in the next sync."
   (interactive)
   (org-entry-put (point) "Modified" (format "%d" (float-time (current-time)))))
 
