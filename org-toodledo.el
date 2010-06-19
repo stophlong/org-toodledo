@@ -565,6 +565,15 @@ been added/edited and (\"deleted\" . \"timestamp\") if tasks have been deleted."
                   repeat-string)
                  "\n")
        "")
+     (if (and (org-toodledo-task-startdate task)
+              (not (equal (org-toodledo-task-startdate task) ""))
+              (not (< (string-to-number (org-toodledo-task-startdate task)) 0)))
+         (concat org-scheduled-string " "
+                 (org-toodledo-format-date
+                  (org-toodledo-task-startdate task)
+                  repeat-string)
+                 "\n")
+       "")
      (or (org-toodledo-task-note task) "") "\n"
      ":PROPERTIES:\n"
      ":Toodledo-ID: " (org-toodledo-task-id task) "\n"
@@ -655,6 +664,7 @@ been added/edited and (\"deleted\" . \"timestamp\") if tasks have been deleted."
 (org-toodledo-task-prop-defun "repeat")
 (org-toodledo-task-prop-defun "context")
 (org-toodledo-task-prop-defun "duedate")
+(org-toodledo-task-prop-defun "startdate")
 (org-toodledo-task-prop-defun "modified")
 (org-toodledo-task-prop-defun "priority")
 (org-toodledo-task-prop-defun "note")
