@@ -511,6 +511,7 @@ been added/edited and (\"deleted\" . \"timestamp\") if tasks have been deleted."
         (when (org-toodledo-success-p (org-toodledo-edit-task task))
           (if (equal (org-toodledo-task-completed task) "1")
               (org-entry-put (point) "Completed" "1")
+            (org-entry-delete (point) "Completed")
             (org-entry-put (point) "Status" (org-toodledo-task-status task)))
           (org-entry-put (point) "Sync"
                          (format "%d" (float-time (current-time)) 1000)))))))
